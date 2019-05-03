@@ -37,7 +37,37 @@ room['treasure'].s_to = room['narrow']
 # Main
 #
 
+def get_dir(cmd, current_room):
+    if cmd == 'n':
+        return current room.n_to
+    elif cmd == 's':
+        return current room.s_to
+    elif cmd == 'e':
+        return current room.e_to
+    elif cmd == 'w':
+        return current room.w_to
+
+player = Player(room['outside'])
+
+print("Entera key to continue... \n [n]orth, [s]outh, [e]ast, [w]est \n -or- [q]quit")
+
+directions = ['n','s', 'e', 'w']
+
 # Make a new player object that is currently in the 'outside' room.
+
+while True:
+    print(player.current_room)
+    print(player.current_room.description)
+    cmd = input("Your Command -> ")
+
+    if cmd in directions:
+        get_dir(cmd, player.current_room)
+    elif cmd == 'q':
+        break
+    else:
+        print('Bad Command, My Liege!')
+
+    
 
 # Write a loop that:
 #
